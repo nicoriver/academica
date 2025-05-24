@@ -108,7 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# Asegúrate de incluir el esquema (http:// o https://)
+CSRF_TRUSTED_ORIGINS = [
+    ' http://academica.nextgenia.ar:8080',
+    ' http://academica.nextgenia.ar:8080/admin',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
