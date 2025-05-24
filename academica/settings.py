@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,18 @@ WSGI_APPLICATION = 'academica.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'next_Academica',
+        #'USER': 'next_admin',
+        #'PASSWORD': 'BFIXdtiT7vKA1wKQb0aR',
+        'USER': 'root',
+        'PASSWORD': 'Resis2010',
+        'HOST': 'localhost',  # O la IP del servidor
+        'PORT': '3306',  # Puerto por defecto de MySQL       
     }
 }
+
+
 
 
 # Password validation
