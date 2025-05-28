@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-@qs)pr!#kwc^5**gqddq6^gq1xf90bp5cs!sc97&j)l(f)62hr
 DEBUG = True
 
 #ALLOWED_HOSTS = ['*']
-#ALLOWED_HOSTS = ['147.93.71.184', 'academica.nextgenia.ar', 'localhost']
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nextgenia.ar']
+ALLOWED_HOSTS = ['147.93.71.184', 'academica.nextgenia.ar', 'localhost']
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nextgenia.ar']
 
 
 # Application definition
