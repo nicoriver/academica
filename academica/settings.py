@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-@qs)pr!#kwc^5**gqddq6^gq1xf90bp5cs!sc97&j)l(f)62hr
 DEBUG = True
 
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['147.93.71.184', 'academica.nextgenia.ar', 'localhost']
-#ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nextgenia.ar']
+#ALLOWED_HOSTS = ['147.93.71.184', 'academica.nextgenia.ar', 'localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'nextgenia.ar']
 
 
 # Application definition
@@ -58,8 +58,8 @@ ROOT_URLCONF = 'academica.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #'DIRS': [os.path.join(BASE_DIR, 'templates')],  # <- Esto es lo importante,
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'app/templates')],  # <- Esto es lo importante,
+        #'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,10 +81,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'next_Academica',
-        'USER': 'next_admin',
-        'PASSWORD': 'BFIXdtiT7vKA1wKQb0aR',
-        #'USER': 'root',
-        #'PASSWORD': 'Resis2010',
+        #'USER': 'next_admin',
+        #'PASSWORD': 'BFIXdtiT7vKA1wKQb0aR',
+        'USER': 'root',
+        'PASSWORD': 'Resis2010',
         'HOST': 'localhost',  # O la IP del servidor
         'PORT': '3306',  # Puerto por defecto de MySQL       
     }
