@@ -11,12 +11,15 @@
 
     <title>Instituto Saavedra | </title>
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
      <link href="/static/FrWork/admin_lte/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="{% static 'FrWork/admin_lte/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{% static 'FrWork/admin_lte/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!--<link href="{% static 'FrWork/admin_lte/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">-->
     <!-- NProgress -->
     <link href="{% static 'FrWork/admin_lte/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
     <!-- iCheck -->
@@ -68,10 +71,10 @@
                   </li>
                   <li><a><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#"><i class="fa fa-user"></i>Listar</a></li>
-                      <li><a href="#"><i class="fa fa-user-plus"></i>Agregar</a></li>
-                      <li><a href="#"><i class="fa fa-user-pencil fa-fw"></i>Actualizar</a></li>
-                      <li><a href="#"><i class="fa fa-user-times"></i>Eliminar</a></li>                      
+                      <li><a href="listar"><i class="fa fa-user"></i>Listar</a></li>
+                      <li><a href="add"><i class="fa fa-user-plus"></i>Agregar</a></li>
+                      <li><a href="update"><i class="fa fa-user-pencil fa-fw"></i>Actualizar</a></li>
+                      <li><a href="delete"><i class="fa fa-user-times"></i>Eliminar</a></li>                      
                     </ul>
                   </li>
                   
