@@ -5,10 +5,27 @@ class Carrera(models.Model):
     nombre_carrera = models.CharField(max_length=150)
     
     def __str__(self):
-        return self.names
+        return self.nombre_carrera
     
     class Meta:
         db_table = 'Carrera'
         verbose_name = 'Carrera'
         verbose_name_plural = 'Carreras'
+
+class Usuario(models.Model):
+    id = models.IntegerField(primary_key=True)
+    nombre = models.CharField(max_length=30, null=False)
+    apellido = models.CharField(max_length=30, null=False)
+    correo = models.CharField(max_length=50, null=False)
+    telefono = models.IntegerField(null=False)
+    f_nac = models.DateTimeField( null=False)
+    f_registro = models.DateTimeField(auto_now_add=True, null=False)
+    
+    def __str__(self):
+        return self.nombre
+    
+    class Meta:
+        db_table = 'Usuario'
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
 
