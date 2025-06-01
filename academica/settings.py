@@ -115,6 +115,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://academica.nextgenia.ar:8080',
     'http://academica.nextgenia.ar:8080/admin',
     'http://academica.nextgenia.ar:8080/index',
+
 ]
 
 # Internationalization

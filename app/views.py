@@ -19,16 +19,16 @@ def delete(request):
     return render(request, "crud_usuarios/delete.html")
 
 def add(request):
-    if request.method=='POST':
-        if request.POST.get('nombre') and request.POST.get('apellido') and request.POST.get('correo') and request.POST.get('telefono') and request.POST.get('f_nac'):
+    if request.method == 'POST':
+        if request.POST.get('nombre') and request.POST.get('apellido') and request.POST.get('mail') and request.POST.get('telefono') and request.POST.get('FechaNac'):
             user = Usuario()           
             user.nombre = request.POST.get('nombre')
             user.apellido = request.POST.get('apellido')
-            user.correo = request.POST.get('correo')
+            user.correo = request.POST.get('mail')
             user.telefono = request.POST.get('telefono')
-            user.f_nac = request.POST.get('f_nac')
+            user.f_nac = request.POST.get('FechaNac')
             user.save()
-            return redirect('listar')
+            return redirect('list')
         else:
             # Mostrar el mismo formulario con un mensaje de error
             return render(request, "crud_usuarios/add.html", {

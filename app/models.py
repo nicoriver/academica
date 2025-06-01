@@ -13,11 +13,11 @@ class Carrera(models.Model):
         verbose_name_plural = 'Carreras'
 
 class Usuario(models.Model):
-    id = models.IntegerField(primary_key=True)
+    #id = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=30, null=False)
     apellido = models.CharField(max_length=30, null=False)
     correo = models.CharField(max_length=50, null=False)
-    telefono = models.IntegerField(null=False)
+    telefono = models.CharField(max_length=50, null=False)
     f_nac = models.DateTimeField( null=False)
     f_registro = models.DateTimeField(auto_now_add=True, null=False)
     
