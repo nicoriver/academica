@@ -1,0 +1,116 @@
+class Carrera(models.Model):
+    nombre_carrera = models.CharField(max_length=150)
+    
+    def __str__(self):
+        return self.nombre_carrera
+    def toJSON(self):
+        item = {'id': self.id, 'name': self.nombre_carrera}
+        return item
+    class Meta:
+        db_table = 'Carrera'
+        verbose_name = 'Carrera'
+        verbose_name_plural = 'Carreras'
+
+class PlanEstudio(models.Model):
+    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
+    nombre_plan = models.CharField(max_length=150)
+    fecha_vigencia = models.DateField()                                                                                                                                                                                                                                                         
+    
+    def __str__(self):
+        return self.carrera
+    
+    class Meta:
+        db_table = 'PlanEstudio'
+        verbose_name = 'Plan de Estudio'
+        verbose_name_plural = 'Planes de Estudio'
+
+class Modalidad(models.Model):
+    descripcion = models.CharField(max_length=150)
+    
+    def __str__(self):
+        return self.descripcion
+    
+    class Meta:
+        db_table = 'Modalidad'
+        verbose_name = 'Modalidad'
+        verbose_name_plural = 'Modalidades'
+
+class Materia(models.Model):
+    nombre_materia = models.CharField(max_length=150)
+    plan = models.ForeignKey(PlanEstudio, on_delete=models.CASCADE)
+    tipo_curso = models.CharField(max_length=150)
+    codigo = models.CharField(max_length=20, unique=True)  # ⭐ CRÍTICO
+    creditos = models.IntegerField()
+    semestre = models.IntegerField()
+    prerequisitos = models.ManyToManyField('self', blank=True)
+    def __str__(self):
+        return self.nombre_materia
+    
+    class Meta:
+        db_table = 'Materia'
+        verbose_name = 'Materia'
+        verbose_name_plural = 'Materias'
+
+class Estudiante(models.Model):
+    nombre = models.CharField(max_length=150)
+    apellido = models.CharField(max_length=150)
+    email = models.EmailField()
+    direccion = models.TextField()
+    telefono = models.CharField(max_length=20)
+    legajo = models.CharField(max_length=20, unique=True)  # ⭐ CRÍTICO
+    dni = models.CharField(max_length=20, unique=True)
+    fecha_nacimiento = models.DateField()
+    fecha_ingreso = models.DateField()
+    estado = models.CharField(max_length=50, default='activo')
+    
+    def __str__(self):
+        return self.nombre
+    
+    class Meta:
+        db_table = 'Estudiante'
+        verbose_name = 'Estudiante'
+        verbose_name_plural = 'Estudiantes'
+
+class Profesor(models.Model):
+    nombre_profesor = models.CharField(max_length=150)
+    especializacion = models.CharField(max_length=150)
+    
+    def __str__(self):
+        return self.nombre_profesor
+    
+    class Meta:
+        db_table = 'Profesor'
+        verbose_name = 'Profesor'
+        verbose_name_plural = 'Profesores'
+
+class InscripcionMateria(models.Model):
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
+    fecha_inscripcion = models.DateField(default=datetime.now)
+    estado = models.CharField(max_length=50)  # 'inscripto', 'regular', 'libre'
+    año_lectivo = models.IntegerField()
+    semestre = models.IntegerField()
+    
+    def __str__(self):
+        return self.estudiante
+    
+    class Meta:
+        db_table = 'InscripcionMateria'
+        verbose_name = 'Inscripción en Materia'
+        verbose_name_plural = 'Inscripciones en Materias'
+
+class Cronograma(models.Model):
+    materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
+    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    modalidad = models.ForeignKey(Modalidad, on_delete=models.CASCADE)
+    dia_semana = models.CharField(max_length=50)
+    hora_inicio = models.TimeField()
+    hora_fin = models.TimeField()
+    
+    def __str__(self):
+        return self.materia
+    
+    class Meta:
+        db_table = 'Cronograma'
+        verbose_name = 'Cronograma'
+        verbose_name_plural = 'Cronogramas'

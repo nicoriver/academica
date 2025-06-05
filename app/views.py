@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Usuario
+from .models import Usuario, PlanEstudio
 # Create your views here.
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates")'
@@ -65,3 +65,9 @@ def add(request):
         return render(request, "crud_usuarios/add.html")
 
 
+#modelo de plan de estudio
+
+def listplan(request):
+    planes = PlanEstudio.objects.all()
+    datos = {'planes' : planes}
+    return render(request, "crud_planestudios/list.html", datos)

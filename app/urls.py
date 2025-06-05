@@ -7,4 +7,7 @@ urlpatterns = [
     path('delete', views.delete, name="delete"),
     path('add', views.add, name="add"),
     path('update', views.update, name="update"),
+    #path planes de estudio
+    path('listplan', views.listplan, name="listplan"),
+
 ]   

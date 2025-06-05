@@ -34,6 +34,13 @@
 
     <!-- Custom Theme Style -->
     <link href="{% static 'FrWork/admin_lte/build/css/custom.min.css' %}" rel="stylesheet">
+    
+    <!-- Bootstrap datatables -->
+    <link rel="stylesheet" href="{% static 'FrWork/admin_lte/vendors/datatables.net-bs/css/dataTables.bootstrap4.min.css' %}">
+
+    {% block extra_css %}
+    {% endblock %}
+   
   </head>
 
   <body class="nav-md">
@@ -76,11 +83,15 @@
                       <li><a href="update"><i class="fa fa-user-check"></i>Actualizar</a></li>
                       <li><a href="delete"><i class="fa fa-user-times"></i>Eliminar</a></li>                      
                     </ul>
-                  </li>
-                  
-                  
-                 
-                 
+                  </li>          
+                   <li><a><i class="fa fa-users"></i> Plan de estudio <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="listplan"><i class="fa fa-user"></i>Listar</a></li>
+                      <li><a href="add"><i class="fa fa-user-plus"></i>Agregar</a></li>
+                      <li><a href="update"><i class="fa fa-user-check"></i>Actualizar</a></li>
+                      <li><a href="delete"><i class="fa fa-user-times"></i>Eliminar</a></li>                      
+                    </ul>
+                  </li>   
                 </ul>
               </div>
               
@@ -117,8 +128,8 @@
 
         {% block content %}
         {% endblock %}
-
-
+        
+        
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -170,6 +181,20 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{% static 'FrWork/admin_lte/build/js/custom.min.js' %}"></script>
-	
+
+    <!-- bootstrap para datatables-->
+    
+
+    <!-- DataTables núcleo -->
+    <script src="{% static 'FrWork/admin_lte/vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+
+    <!-- Integración con Bootstrap 4 -->
+    <script src="{% static 'FrWork/admin_lte/vendors/datatables.net-bs/js/dataTables.bootstrap4.min.js' %}"></script>
+
+    <!-- Antes del cierre del BODY -->
+  {% block extra_js %}{% endblock %}
+
+
+
   </body>
 </html>

@@ -29,3 +29,19 @@ class Usuario(models.Model):
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
+
+class PlanEstudio(models.Model):
+    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
+    nombre_plan = models.CharField(max_length=150)
+    fecha_vigencia = models.DateField()                                                                                                                                                                                                                                                         
+    
+    def __str__(self):
+        return self.carrera
+    
+    class Meta:
+        db_table = 'PlanEstudio'
+        verbose_name = 'Plan de Estudio'
+        verbose_name_plural = 'Planes de Estudio'
+
+
+
