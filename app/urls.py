@@ -9,5 +9,7 @@ urlpatterns = [
     path('update', views.update, name="update"),
     #path planes de estudio
     path('listplan', views.listplan, name="listplan"),
+    path('listp', views.listp, name="listp"),
+
 
 ]   

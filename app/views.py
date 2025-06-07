@@ -71,3 +71,8 @@ def listplan(request):
     planes = PlanEstudio.objects.all()
     datos = {'planes' : planes}
     return render(request, "crud_planestudios/list.html", datos)
+
+def listp(request):
+    planes = PlanEstudio.objects.all()
+    datos = {'planes' : planes}
+    return render(request, "crud_planestudios/listp.html", datos)
